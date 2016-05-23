@@ -1,0 +1,156 @@
+<html>
+<head>
+    <style>
+        #pembungkus {
+            margin:0 auto;
+            height:540px;
+            width:720px;
+            overflow:hidden;
+            }
+
+        img {
+            position: relative;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+
+	var data={
+		//"sc":0,//Waktu pengkondisian awal
+		//"di":0,//Waktu pergerakan antar record
+		//"s":0,//Seek Time
+		//"r":0,//Rotational Latency
+		//"RPM":0,//Jumlah putaran per menit
+		//"TR":0,//Record Transfer Time(Transfer Rate)
+		//"R":0,//Panjang Record Rata-rata
+		//"t":0,//Transfer Rate
+		//"Btt":0,//Block Transfer Time
+		//"B":0,//Block size
+		//"Bfr":0,//Fixed Blocking
+		//"P":0,//Block Pointer
+		//"M":0,//Record Mark
+		//"WG":0,//Pemborosan karena Gap
+		//"G":0,//
+		//"WR":0,//Pemborosan karena Blocking
+		//"W":0,//Fixed Blocking
+		//"TL":0,
+		//"D":0,
+		//"BF":0,
+		//"C":0,
+		//"IRG":0,
+
+		"δi":0,						//Jarak yang dilalui
+		"A":0,						//Rata-rata yang diperlukan untuk nama atribut
+		"a_count":0,				//Jumlah atribut berbeda dalam suatu berkas
+		"A’":0,						//Jumlah rata-rata atribut dalam suatu record
+		"B_size":0,					//Ukuran blok
+		"b_count":0,				//Jumlah blok
+		"btt":0,					//Waktu yang diperlukan untuk transfer satu blok (Blok transfer time)
+									//Btt = B / t
+		"Bfr":0,					//Blocking factor
+		"C_currency":0,				//Factor-faktor harga
+		"c_compute":0,				//Waktu yang diperlukan untuk komputasi
+		"D":0,						//Ruang untuk penyimpanan data
+		"d":0,						//Jumlah record yang telah dinyatakan tak valid
+		"F":0,						//Subscript yang menunjukkan pengambilan suatu record
+		"G_giga":0,					//Giga atau seribu juta kali
+		"Gap":0,					//Ruang yang diperlukan untuk satu gap antar blok
+		"h":0,						//Variable klasifikasi
+		"I":0,						//Subscript yang menunjukan penyisipan record
+		"j":0,						//Jumlah silinder
+		"K_kilo":0,					//Kilo atau seribu kali
+		"k":0,						//Jumlah track per silinder
+		"L":0,						//Factor-faktor frekuensi beban
+		"M_multiprogramming":0,		//Factor multiprogramming
+		"m":0,						//Jumlah slot yang tersedia untuk record
+		"N":0,						//Subscript yang menunjukan pengambilan record berikutnya
+		"n":0,						//Jumlah record data berkas
+		"o_deg":0,					//Derajat magnitude
+		"o":0,						//Jumlah record yang overflow
+		"P_pointer":0,				//Yang diperlukan untuk pointer
+		"p_probabilitas":0,			//Biaya tabrakan, juga peluang tabrakan
+		"q":0,						//Permintaan produksi oleh satu aplikasi berkas
+		"R":0,						//Ruang yang diperlukan untuk satu record lengkap
+		"RW":0,						//Subscript yang menunjukkan baca tulis
+		"r":0,						//Waktu rotational latency 
+									//r = 1/2 * ((60 * 1000)/RPM
+									//r = (60 x 1000) / (2 x rpm)
+		"Sc":0,						//Waktu start-up						
+		"SI":0,						//Ruang penyimpan untuk indeks
+		"st":0,						//Seek Time
+		"s":0,						//Rata-rata waktu untuk pencarian
+		"T":0,						//Waktu yang diperlukan untuk beragam operasi
+		"Tsort":0,					//Waktu yang diperlukan untuk mengurutkan berkas
+		"t_transferrate":0,			//Rate transfer dari unit penyimpanan ke unit pemrosesan
+		"T":0,						//Subscript yang menunjukkan waktu transaksi total			
+		"Tf":0,						//Fetch a record, yaitu waktu pengambilan record tertentu
+		"Tn":0,						//Get the next record, yaitu waktu pengambilan record berikutnya
+		"TI":0,						//insert a record, yaitu waktu penyisipan record
+		"Tu":0,						//Update a record, yaitu waktu pembaruan record
+		"Tx":0,						//Read the entire file, yaitu waktu pembacaan seluruh record
+		"Ty":0,						//Reorganize the file, yaitu waktu reorganisasi file		
+		"t’":0,						//Bulk transfer rate (Bulk transfer time)
+									//t’ = (t/2) * (R / (R + W))
+		"TR":0,						//Record transfer Time
+									//TR = R / t
+		"U":0,						//Subscript yang menunjukkan update satu record
+		"u_utilisasi":0,			//Utilisasi
+		"uf":0,						//Factor utilisasi
+		"V":0,						//Rata-rata ruang untuk bagian nilai dari satu atribut
+		"w":0,						//Waktu tunggu dalam antrian
+		"W_timegapperrecord":0,		//Waktu yang disiapkan untuk gap-gap per record
+		"W_pemborosan":0,			//Pemborosan untuk Fixed bloking
+									//W = WG + WR
+									//Pemborosan untuk Spanned Bloking
+									//W = P + ((P + G) / Bfr)
+									//Pemborosan untuk Unspanned Bloking
+									//W = P +(( 1/2 R + G) / Bfr)
+		"WG":0,						//Pemborosan karena Gap
+		"WR":0,						//Pemborosan karena Blocking
+		"X":0,						//Subscript yang menunjukkan pencarian keeluruhan
+		"x_count":0,				//Jumlah tingkat dalam satu indeks
+		"Y":0,						//Subscript yang menujukkan reorganisasi satu berkas
+		"y_rasiofanout":0			//Rasio fanout
+	};
+
+	$(function(){
+
+	});
+ 
+	//Seek Time
+	function get_s(){
+		return data["s"]=data["sc"]+data["di"];
+	}
+	//Rotational Latency
+	function get_r(){
+		return data["r"]=1/2*((60*10000)/data["RPM"]);
+	}
+	//Record Transfer Time
+	function get_TR(){
+		return data["TR"]=data["R"]/data["t"];
+	}
+	//Block Transfer Time	
+	function get_Btt(){
+		return data["Btt"]=data["B"]/data["t"];
+	}
+	//Blocking Factor
+	function get_Bfr(){
+		return data["Bfr"]=data["B"]/data["R"];
+	}
+
+	//Blocking Factor
+	function get_Tsort(){
+		return data["Bfr"]=data["B"]/data["R"];
+	}
+
+
+
+</script>
+</body>
+</html>

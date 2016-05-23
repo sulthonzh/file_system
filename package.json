@@ -1,0 +1,25 @@
+{
+  "name": "file_system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SulthonZH/-file_system.git"
+  },
+  "keywords": [
+    "file",
+    "system",
+    "sistem",
+    "berkas"
+  ],
+  "author": "Sulthon Zainul Habib",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SulthonZH/-file_system/issues"
+  },
+  "homepage": "https://github.com/SulthonZH/-file_system#readme"
+}
